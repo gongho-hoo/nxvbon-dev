@@ -1,0 +1,45 @@
+server:
+  port: 18000
+  address: 0.0.0.0
+
+spring:
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:15432/vibe_dev
+    username: vibe
+    password: vibe_postgres_pw
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 16379
+      password: vibe_redis_pw
+      database: 0
+
+nxvibeon:
+  workspace-root: /nxvbon/workspace/vibe-coding-tool/runtime/workspaces
+  ai-worker:
+    base-url: http://127.0.0.1:18001
+    connect-timeout-ms: 3000
+    read-timeout-ms: 600000
+  scm:
+    command-timeout-seconds: 120
+  prompt:
+    general-chat: prompts/general-chat-prompt-ko.md
+    project-chat: prompts/project-chat-prompt-ko.md
+  chat-history:
+    retention-months: 3
+    cleanup-cron: "0 10 0 * * *"
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
