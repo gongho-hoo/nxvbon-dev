@@ -19,6 +19,7 @@ public class DocumentIndexController {
         this.aiClient = aiClient;
     }
 
+    // 테스트 커멘트 입니다.
     @PostMapping("/index")
     public ApiResponse<IndexDocumentResponse> index(@Valid @RequestBody IndexDocumentRequest request) {
         return ApiResponse.ok(aiClient.indexDocument(request));
